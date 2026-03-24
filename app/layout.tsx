@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollAnimations from "@/components/ScrollAnimations";
+
+const VoiceAgent = dynamic(() => import("@/components/VoiceAgent"), { ssr: false });
 
 declare global {
   namespace JSX {
@@ -47,7 +50,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </SmoothScroll>
         <ScrollAnimations />
-        <chat-widget location-id="LyOYhH95JP7PMLpPLEXT" />
+        <VoiceAgent />
+        <chat-widget
+          location-id="LyOYhH95JP7PMLpPLEXT"
+          style={{
+            '--chat-widget-primary-color': '#FF6B35',
+            '--chat-widget-active-color': '#FF6B35',
+          } as React.CSSProperties}
+        />
         <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"

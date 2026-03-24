@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Gratis Audit Plannen — Seiketsu Systems",
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     "Plan uw gratis strategische audit van 30 minuten. Ontdek hoeveel leads u verliest en hoe AI automatisering dat oplost.",
 };
 
+// Als de kalender leeg blijft: ga naar GHL → Calendars → uw kalender → Instellingen → Embed → kopieer de juiste iframe URL en vervang de src hier
 export default function ContactPage() {
   return (
     <>
@@ -44,18 +46,14 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="text-white font-semibold text-sm">
-                    Kies een datum en tijdstip
-                  </p>
+                  <p className="text-white font-semibold text-sm">Kies een datum en tijdstip</p>
                 </div>
-                <div className="bg-white rounded-b-2xl">
+                <div className="bg-white rounded-b-2xl overflow-hidden">
                   <iframe
                     src="https://api.leadconnectorhq.com/widget/booking/david-30m-audit"
-                    style={{ width: "100%", border: "none", overflow: "hidden" }}
-                    scrolling="no"
+                    style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "700px", display: "block" }}
                     id="msgsndr-calendar"
                     title="Seiketsu Systems — Gratis Audit Boeken"
-                    className="min-h-[700px] rounded-b-2xl"
                   />
                 </div>
               </div>
@@ -245,6 +243,10 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+        <Script
+          src="https://link.msgsndr.com/js/form_embed.js"
+          strategy="afterInteractive"
+        />
       </main>
       <Footer />
     </>
