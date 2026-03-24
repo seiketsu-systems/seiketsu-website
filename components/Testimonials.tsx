@@ -47,7 +47,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 gsap-stagger">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.naam}

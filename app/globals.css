@@ -327,3 +327,97 @@ button:focus-visible {
   background-image: radial-gradient(rgba(255, 107, 53, 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* ─── Space Grotesk font ─── */
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+/* ─── Tech grid background ─── */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(255, 107, 53, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 53, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── Dashboard panel float animation ─── */
+@keyframes dashboardFloat {
+  0%, 100% { transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateY(0px); }
+  50% { transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateY(-10px); }
+}
+
+@keyframes dashboardEntrance {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateX(60px) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateX(0) translateY(0);
+  }
+}
+
+.dashboard-panel {
+  animation: dashboardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
+             dashboardFloat 6s ease-in-out 1.3s infinite;
+}
+
+/* ─── Bar chart animation ─── */
+@keyframes barGrow {
+  from { height: 0%; opacity: 0; }
+  to { height: 100%; opacity: 1; }
+}
+
+.bar-animate {
+  animation: barGrow 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ─── Lead card slide in ─── */
+@keyframes cardSlideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.lead-card-animate {
+  opacity: 0;
+  animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Progress bar animate ─── */
+@keyframes progressGrow {
+  from { width: 0%; }
+  to { width: 73%; }
+}
+
+.progress-animate {
+  animation: progressGrow 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1s both;
+}
+
+/* ─── GSAP reveal classes (initial state) ─── */
+.gsap-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.gsap-fade-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gsap-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gsap-stagger.animated > *:nth-child(1) { opacity: 1; transform: translateY(0); transition: all 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1); }
+.gsap-stagger.animated > *:nth-child(2) { opacity: 1; transform: translateY(0); transition: all 0.7s 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.gsap-stagger.animated > *:nth-child(3) { opacity: 1; transform: translateY(0); transition: all 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.gsap-stagger.animated > *:nth-child(4) { opacity: 1; transform: translateY(0); transition: all 0.7s 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* ─── GHL Chat Widget dark theme override ─── */
+chat-widget {
+  --chat-widget-primary-color: #FF6B35;
+  --chat-widget-active-color: #FF6B35;
+}

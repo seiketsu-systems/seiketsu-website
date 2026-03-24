@@ -64,7 +64,7 @@ export default function Prijzen() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[600px] bg-[#FF6B35]/[0.03] rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 gsap-fade-up">
           <span className="text-[#FF6B35] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
             Tarieven
           </span>
@@ -78,7 +78,7 @@ export default function Prijzen() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch gsap-stagger">
           {pakketten.map((pakket) => (
             <div
               key={pakket.naam}

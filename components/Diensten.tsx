@@ -91,7 +91,7 @@ export default function Diensten() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FF6B35]/[0.02] rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 gsap-fade-up">
           <span className="text-[#FF6B35] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
             Onze Diensten
           </span>
@@ -105,7 +105,7 @@ export default function Diensten() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 gsap-stagger">
           {diensten.map((dienst, index) => (
             <div
               key={dienst.title}

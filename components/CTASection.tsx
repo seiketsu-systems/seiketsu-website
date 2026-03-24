@@ -12,7 +12,7 @@ export default function CTASection() {
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-black/[0.1] rounded-full blur-[80px] pointer-events-none" />
 
       <div className="relative py-24 md:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center gsap-fade-up">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
             Klaar om te starten?
           </h2>

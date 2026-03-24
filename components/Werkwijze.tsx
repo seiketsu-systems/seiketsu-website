@@ -47,7 +47,7 @@ export default function Werkwijze() {
       <div className="section-divider absolute bottom-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 gsap-fade-up">
           <span className="text-[#FF6B35] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
             Werkwijze
           </span>
@@ -61,7 +61,7 @@ export default function Werkwijze() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
+        <div className="grid md:grid-cols-3 gap-8 relative gsap-stagger">
           {/* Connecting line desktop */}
           <div className="hidden md:block absolute top-[42px] left-[16.67%] right-[16.67%] h-[1px] bg-gradient-to-r from-[#FF6B35]/40 via-[#FF6B35]/20 to-[#FF6B35]/40" />
 
