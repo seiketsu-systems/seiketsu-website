@@ -85,12 +85,17 @@ export default function SocialProofBar() {
   }, []);
 
   return (
-    <section className="bg-[#1A1A1A] border-y border-[#2A2A2A] py-12 md:py-16">
+    <section className="relative bg-[#0F0F0F] py-14 md:py-20 overflow-hidden">
+      {/* Top divider */}
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      {/* Bottom divider */}
+      <div className="section-divider absolute bottom-0 left-0 right-0" />
+
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-[#FF6B35] mb-2">
+          {stats.map((stat, index) => (
+            <div key={stat.label} className="text-center group">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold gradient-text mb-3">
                 <CountUp
                   value={stat.value}
                   prefix={stat.prefix}
@@ -98,7 +103,7 @@ export default function SocialProofBar() {
                   isVisible={isVisible}
                 />
               </div>
-              <div className="text-gray-400 text-sm md:text-base font-medium">
+              <div className="text-gray-500 text-sm md:text-base font-medium">
                 {stat.label}
               </div>
             </div>

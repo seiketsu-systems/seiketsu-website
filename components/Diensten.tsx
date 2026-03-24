@@ -4,7 +4,7 @@ const diensten = [
   {
     icon: (
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -31,7 +31,7 @@ const diensten = [
   {
     icon: (
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -58,7 +58,7 @@ const diensten = [
   {
     icon: (
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -86,17 +86,20 @@ const diensten = [
 
 export default function Diensten() {
   return (
-    <section id="diensten" className="bg-[#0A0A0A] py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#FF6B35] text-sm font-semibold tracking-widest uppercase mb-4 block">
+    <section id="diensten" className="relative bg-[#0A0A0A] py-24 md:py-32 overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FF6B35]/[0.02] rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <span className="text-[#FF6B35] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
             Onze Diensten
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-5">
             Drie systemen,{" "}
-            <span className="text-[#FF6B35]">één volledig proces</span>
+            <span className="gradient-text">één volledig proces</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             Elk pakket bouwt voort op het vorige. Samen vormen ze een complete,
             autonome sales machine voor uw bedrijf.
           </p>
@@ -106,39 +109,41 @@ export default function Diensten() {
           {diensten.map((dienst, index) => (
             <div
               key={dienst.title}
-              className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-8 hover:border-[#FF6B35]/50 transition-colors duration-300 group"
+              className="card-premium p-8 group"
             >
-              {/* Number */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-colors duration-300">
+              {/* Number + Icon */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-[#FF6B35]/[0.08] flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-400">
                   {dienst.icon}
                 </div>
-                <span className="text-[#2A2A2A] text-5xl font-black group-hover:text-[#FF6B35]/20 transition-colors duration-300">
+                <span className="text-white/[0.04] text-6xl font-display font-extrabold group-hover:text-[#FF6B35]/[0.08] transition-colors duration-400">
                   0{index + 1}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="font-display text-xl font-bold text-white mb-3">
                 {dienst.title}
               </h3>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              <p className="text-gray-400 text-sm mb-7 leading-relaxed">
                 {dienst.description}
               </p>
 
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {dienst.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2.5">
-                    <svg
-                      className="w-4 h-4 text-[#FF6B35] flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                  <li key={feature} className="flex items-center gap-3">
+                    <div className="w-4 h-4 rounded-full bg-[#FF6B35]/10 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-2.5 h-2.5 text-[#FF6B35]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
                     <span className="text-gray-300 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -147,14 +152,14 @@ export default function Diensten() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-14">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#e55a25] text-white px-8 py-4 rounded font-semibold text-base transition-colors duration-200"
+            className="btn-premium inline-flex items-center gap-2 bg-[#FF6B35] hover:bg-[#e55a25] text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 group"
           >
             Bespreek uw situatie
             <svg
-              className="w-4 h-4"
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

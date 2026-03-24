@@ -27,17 +27,21 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#1A1A1A] py-20 md:py-28">
+    <section className="relative bg-[#0F0F0F] py-24 md:py-32 overflow-hidden">
+      {/* Section dividers */}
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="section-divider absolute bottom-0 left-0 right-0" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#FF6B35] text-sm font-semibold tracking-widest uppercase mb-4 block">
+        <div className="text-center mb-20">
+          <span className="text-[#FF6B35] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
             Klanten aan het woord
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-5">
             Resultaten die{" "}
-            <span className="text-[#FF6B35]">voor zichzelf spreken</span>
+            <span className="gradient-text">voor zichzelf spreken</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             NL MKB-ondernemers die hun sales hebben geautomatiseerd met
             Seiketsu Systems.
           </p>
@@ -47,7 +51,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.naam}
-              className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-8 flex flex-col"
+              className="card-premium p-8 flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-6">
@@ -63,18 +67,21 @@ export default function Testimonials() {
                 ))}
               </div>
 
+              {/* Large quote mark */}
+              <div className="text-[#FF6B35]/10 text-6xl font-serif leading-none mb-2">&ldquo;</div>
+
               {/* Quote */}
-              <blockquote className="text-gray-300 text-base leading-relaxed mb-8 flex-grow italic">
-                &ldquo;{testimonial.quote}&rdquo;
+              <blockquote className="text-gray-300 text-[15px] leading-relaxed mb-8 flex-grow">
+                {testimonial.quote}
               </blockquote>
 
               {/* Author */}
-              <div className="flex items-center gap-4 pt-6 border-t border-[#2A2A2A]">
-                <div className="w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+              <div className="flex items-center gap-4 pt-6 border-t border-white/[0.06]">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#FF8F65] rounded-full flex items-center justify-center text-white font-display font-bold text-lg flex-shrink-0 shadow-glow">
                   {testimonial.initiaal}
                 </div>
                 <div>
-                  <div className="font-semibold text-white">
+                  <div className="font-semibold text-white text-sm">
                     {testimonial.naam}
                   </div>
                   <div className="text-gray-500 text-sm">

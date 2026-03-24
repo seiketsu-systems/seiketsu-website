@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Diensten", href: "#diensten" },
-  { label: "Werkwijze", href: "#werkwijze" },
-  { label: "Prijzen", href: "#prijzen" },
+  { label: "Diensten", href: "/#diensten" },
+  { label: "Werkwijze", href: "/#werkwijze" },
+  { label: "Prijzen", href: "/#prijzen" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -17,29 +17,32 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[#2A2A2A]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative bg-[#0A0A0A] overflow-hidden">
+      {/* Top gradient divider */}
+      <div className="section-divider" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand column */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="text-[#FF6B35] font-black text-xl tracking-tight">
+            <Link href="/" className="flex items-center gap-2 mb-5 group">
+              <span className="text-[#FF6B35] font-black text-xl tracking-tight group-hover:text-[#FF8F65] transition-colors duration-300">
                 SEIKETSU
               </span>
               <span className="text-white font-light text-xl tracking-tight">
                 SYSTEMS
               </span>
             </Link>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
               AI sales automatisering voor het Nederlandse MKB. Stop met leads
               verliezen door trage opvolging — wij regelen het.
             </p>
 
             {/* Contact info */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <a
                 href="mailto:info@seiketsu-systems.nl"
-                className="flex items-center gap-2 text-gray-400 hover:text-[#FF6B35] transition-colors duration-200 text-sm"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-[#FF6B35] transition-colors duration-300 text-sm"
               >
                 <svg
                   className="w-4 h-4"
@@ -58,7 +61,7 @@ export default function Footer() {
               </a>
               <a
                 href="tel:+319701025988"
-                className="flex items-center gap-2 text-gray-400 hover:text-[#FF6B35] transition-colors duration-200 text-sm"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-[#FF6B35] transition-colors duration-300 text-sm"
               >
                 <svg
                   className="w-4 h-4"
@@ -75,7 +78,7 @@ export default function Footer() {
                 </svg>
                 +31 9701 0259 881
               </a>
-              <div className="flex items-start gap-2 text-gray-500 text-sm">
+              <div className="flex items-start gap-2.5 text-gray-500 text-sm">
                 <svg
                   className="w-4 h-4 mt-0.5 flex-shrink-0"
                   fill="none"
@@ -102,15 +105,15 @@ export default function Footer() {
 
           {/* Nav column */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-5 uppercase tracking-wider">
+            <h4 className="text-white font-display font-bold text-sm mb-6 uppercase tracking-[0.15em]">
               Navigatie
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3.5">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -121,14 +124,14 @@ export default function Footer() {
 
           {/* Social + Legal */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-5 uppercase tracking-wider">
+            <h4 className="text-white font-display font-bold text-sm mb-6 uppercase tracking-[0.15em]">
               Volg ons
             </h4>
             <a
               href="https://linkedin.com/company/seiketsu-systems"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-[#FF6B35] transition-colors duration-200 text-sm mb-8"
+              className="inline-flex items-center gap-2.5 text-gray-400 hover:text-[#FF6B35] transition-colors duration-300 text-sm mb-10"
             >
               <svg
                 className="w-5 h-5"
@@ -140,7 +143,7 @@ export default function Footer() {
               LinkedIn
             </a>
 
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-white font-display font-bold text-sm mb-5 uppercase tracking-[0.15em]">
               Juridisch
             </h4>
             <ul className="space-y-3">
@@ -148,7 +151,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-500 hover:text-gray-300 transition-colors duration-200 text-xs"
+                    className="text-gray-500 hover:text-gray-300 transition-colors duration-300 text-xs"
                   >
                     {link.label}
                   </Link>
@@ -159,12 +162,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-[#2A2A2A] flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-sm">
-            © {year} Seiketsu Systems. Alle rechten voorbehouden.
+            &copy; {year} Seiketsu Systems. Alle rechten voorbehouden.
           </p>
-          <p className="text-gray-600 text-xs">
-            KvK-registratie: Eindhoven · BTW: NL (op aanvraag) · AVG-compliant
+          <p className="text-gray-700 text-xs">
+            KvK-registratie: Eindhoven &middot; BTW: NL (op aanvraag) &middot; AVG-compliant
           </p>
         </div>
       </div>

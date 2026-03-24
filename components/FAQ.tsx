@@ -39,16 +39,16 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-[#0A0A0A] py-20 md:py-28">
+    <section id="faq" className="relative bg-[#0A0A0A] py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#FF6B35] text-sm font-semibold tracking-widest uppercase mb-4 block">
+        <div className="text-center mb-20">
+          <span className="text-[#FF6B35] text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
             Veelgestelde vragen
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">
-            Heeft u een <span className="text-[#FF6B35]">vraag</span>?
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-5">
+            Heeft u een <span className="gradient-text">vraag</span>?
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             Hieronder vindt u antwoorden op de meest gestelde vragen. Staat uw
             vraag er niet bij? Neem dan direct contact met ons op.
           </p>
@@ -58,25 +58,29 @@ export default function FAQ() {
           {vragen.map((item, index) => (
             <div
               key={item.vraag}
-              className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl overflow-hidden"
+              className={`rounded-2xl overflow-hidden transition-all duration-400 ${
+                open === index
+                  ? "bg-[#1A1A1A] border border-[#FF6B35]/20"
+                  : "bg-[#111111] border border-white/[0.04] hover:border-white/[0.08]"
+              }`}
             >
               <button
                 onClick={() => setOpen(open === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#222222] transition-colors duration-200"
+                className="w-full flex items-center justify-between p-6 text-left transition-colors duration-200"
                 aria-expanded={open === index}
               >
-                <span className="font-semibold text-white pr-4">
+                <span className="font-semibold text-white pr-4 text-[15px]">
                   {item.vraag}
                 </span>
                 <div
-                  className={`flex-shrink-0 w-6 h-6 rounded-full border border-[#2A2A2A] flex items-center justify-center transition-all duration-300 ${
+                  className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-400 ${
                     open === index
-                      ? "bg-[#FF6B35] border-[#FF6B35] rotate-45"
-                      : ""
+                      ? "bg-[#FF6B35] rotate-45"
+                      : "bg-white/[0.04]"
                   }`}
                 >
                   <svg
-                    className="w-3 h-3 text-white"
+                    className="w-3.5 h-3.5 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -92,12 +96,13 @@ export default function FAQ() {
               </button>
 
               <div
-                className={`transition-all duration-300 overflow-hidden ${
-                  open === index ? "max-h-96" : "max-h-0"
+                className={`transition-all duration-400 overflow-hidden ${
+                  open === index ? "max-h-[500px]" : "max-h-0"
                 }`}
               >
-                <div className="px-6 pb-6 border-t border-[#2A2A2A]">
-                  <p className="text-gray-400 leading-relaxed pt-4">
+                <div className="px-6 pb-6">
+                  <div className="h-[1px] bg-gradient-to-r from-[#FF6B35]/20 via-white/[0.04] to-transparent mb-4" />
+                  <p className="text-gray-400 leading-relaxed text-[15px]">
                     {item.antwoord}
                   </p>
                 </div>
