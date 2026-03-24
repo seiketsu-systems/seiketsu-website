@@ -53,6 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <VoiceAgent />
         <chat-widget
           location-id="LyOYhH95JP7PMLpPLEXT"
+          i-1-8n-labels='{"name":"Naam","phone":"Mobiel","email":"E-mailadres","message":"Bericht","required":"Verplicht","send":"Verzenden","received":"Ontvangen","sending":"Verzenden...","invalid_value":"Ongeldig nummer"}'
           style={{
             '--chat-widget-primary-color': '#FF6B35',
             '--chat-widget-active-color': '#FF6B35',
