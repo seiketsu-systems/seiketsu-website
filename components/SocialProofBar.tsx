@@ -16,17 +16,7 @@ const stats: Stat[] = [
   { prefix: "", value: 14, suffix: " dagen", label: "Tot go-live gemiddeld" },
 ];
 
-function CountUp({
-  value,
-  prefix,
-  suffix,
-  isVisible,
-}: {
-  value: number;
-  prefix: string;
-  suffix: string;
-  isVisible: boolean;
-}) {
+function CountUp({ value, prefix, suffix, isVisible }: { value: number; prefix: string; suffix: string; isVisible: boolean }) {
   const [displayed, setDisplayed] = useState(0);
   const animatedRef = useRef(false);
 
@@ -54,14 +44,11 @@ function CountUp({
     return () => clearInterval(timer);
   }, [isVisible, value]);
 
-  const display =
-    value % 1 !== 0 ? displayed.toFixed(1) : Math.floor(displayed).toString();
+  const display = value % 1 !== 0 ? displayed.toFixed(1) : Math.floor(displayed).toString();
 
   return (
     <span>
-      {prefix}
-      {display}
-      {suffix}
+      {prefix}{display}{suffix}
     </span>
   );
 }
@@ -85,25 +72,15 @@ export default function SocialProofBar() {
   }, []);
 
   return (
-    <section className="relative bg-[#0F0F0F] py-14 md:py-20 overflow-hidden">
-      {/* Top divider */}
-      <div className="section-divider absolute top-0 left-0 right-0" />
-      {/* Bottom divider */}
-      <div className="section-divider absolute bottom-0 left-0 right-0" />
-
+    <section className="bg-surface-elevated py-14 md:py-20 border-y border-zinc-800">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {stats.map((stat, index) => (
-            <div key={stat.label} className="text-center group">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold gradient-text mb-3">
-                <CountUp
-                  value={stat.value}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                  isVisible={isVisible}
-                />
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-mono mb-3">
+                <CountUp value={stat.value} prefix={stat.prefix} suffix={stat.suffix} isVisible={isVisible} />
               </div>
-              <div className="text-gray-500 text-sm md:text-base font-medium">
+              <div className="text-zinc-500 text-sm md:text-base font-medium">
                 {stat.label}
               </div>
             </div>

@@ -1,36 +1,27 @@
 const partners = [
-  { name: "WhatsApp", style: "text-green-400/60 hover:text-green-400" },
-  { name: "Google", style: "text-blue-400/60 hover:text-blue-400" },
-  { name: "HighLevel", style: "text-yellow-400/60 hover:text-yellow-400" },
-  { name: "Stripe", style: "text-purple-400/60 hover:text-purple-400" },
-  { name: "Vapi", style: "text-[#FF6B35]/60 hover:text-[#FF6B35]" },
-  { name: "Zapier", style: "text-orange-400/60 hover:text-orange-400" },
+  "WhatsApp", "Google", "HighLevel", "Stripe", "Vapi", "Zapier",
+  "WhatsApp", "Google", "HighLevel", "Stripe", "Vapi", "Zapier",
 ];
 
 export default function Partners() {
   return (
-    <section className="bg-[#0A0A0A] py-14 md:py-20">
+    <section className="bg-surface-base py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-gray-600 text-xs font-semibold tracking-[0.2em] uppercase mb-12">
+        <p className="text-center text-zinc-600 text-xs font-semibold tracking-[0.2em] uppercase mb-10">
           Integraties &amp; Partners
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-          {partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex items-center gap-2 transition-all duration-300 cursor-default"
-            >
+        <div className="relative overflow-hidden">
+          <div className="flex logo-scroll gap-12 w-max">
+            {partners.map((name, i) => (
               <span
-                className={`text-xl md:text-2xl font-black tracking-tight transition-all duration-300 ${partner.style}`}
+                key={`${name}-${i}`}
+                className="text-zinc-600 hover:text-zinc-400 text-lg font-bold tracking-tight transition-colors duration-200 whitespace-nowrap"
               >
-                {partner.name}
+                {name}
               </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <p className="text-center text-gray-600 text-xs mt-10">
-          Wij integreren naadloos met de tools die u al gebruikt
-        </p>
       </div>
     </section>
   );

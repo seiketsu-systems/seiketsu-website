@@ -5,6 +5,7 @@ import Partners from "@/components/Partners";
 import Vergelijking from "@/components/Vergelijking";
 import Diensten from "@/components/Diensten";
 import Werkwijze from "@/components/Werkwijze";
+import ResultsSection from "@/components/ResultsSection";
 import Prijzen from "@/components/Prijzen";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -22,6 +23,7 @@ export default function Home() {
         <Vergelijking />
         <Diensten />
         <Werkwijze />
+        <ResultsSection />
         <Prijzen />
         <Testimonials />
         <FAQ />

@@ -15,7 +15,7 @@ export default function ScrollAnimations() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
-    document.querySelectorAll('.gsap-fade-up, .gsap-stagger').forEach((el) => {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => {
       observer.observe(el);
     });
 
